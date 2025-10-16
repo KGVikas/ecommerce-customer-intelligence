@@ -3,8 +3,8 @@
 ### 🔍 Overview
 This repository implements an end-to-end Python analytics workflow for the **Olist e-commerce dataset**. It automates raw data ingestion, cleaning (ETL), RFM (Recency, Frequency, Monetary) feature engineering, and presents actionable insights via an interactive **Streamlit** dashboard. The project is modular, reproducible, and built for clarity and extension.
  
-⚠️ Note: The data/raw/ and data/processed/ folders contain a .gitkeep placeholder. You must download the raw CSV files from Kaggle
- and place them in data/raw/.
+⚠️ Note: The data/raw/ and data/processed/ folders contain a README.txt placeholder with the message: "This folder is empty. Add raw CSVs and run ETL to generate processed files."
+Download the raw CSV files from Kaggle and place them in data/raw/.
 Run the ETL pipeline to generate the processed files in data/processed/.
 
 ---
