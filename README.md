@@ -9,6 +9,12 @@ Run the ETL pipeline to generate the processed files in data/processed/.
 
 ---
 
+### Streamlit Dashboard Demo
+ 
+https://github.com/user-attachments/assets/76acd421-fe25-4a5e-a469-fb3ccc42bb43
+
+---
+
 ## 📁 Project Structure
 
 ```
