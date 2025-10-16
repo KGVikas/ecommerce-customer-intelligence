@@ -1,2 +1,133 @@
-# ecommerce-customer-intelligence
-End-to-end Python project using the Olist dataset — automates ETL, RFM segmentation, and customer analytics with a Streamlit dashboard to reveal revenue drivers, loyalty segments, and actionable insights for e-commerce businesses.
+# 🧠 Olist Customer Intelligence — End-to-End Data Pipeline & RFM Dashboard
+
+### 🔍 Overview
+This repository implements an end-to-end Python analytics workflow for the **Olist e-commerce dataset**. It automates raw data ingestion, cleaning (ETL), RFM (Recency, Frequency, Monetary) feature engineering, and presents actionable insights via an interactive **Streamlit** dashboard. The project is modular, reproducible, and built for clarity and extension.
+
+---
+
+## 📁 Project Structure
+
+```
+Ecom-Customer-Intelligence/
+│
+├── data/
+│ ├── raw/ # Raw Olist CSV files (you must add)
+│ │ ├── olist_orders_dataset.csv
+│ │ ├── olist_order_items_dataset.csv
+│ │ ├── olist_order_payments_dataset.csv
+│ │ └── olist_customers_dataset.csv
+│ │
+│ └── processed/ # Outputs produced by ETL/RFM
+│ ├── customers_clean.csv
+│ ├── payments_agg.csv
+│ ├── items_agg.csv
+│ ├── orders_rfm.csv
+│ └── rfm.csv
+│
+├── src/
+│ ├── data/
+│ │ ├── ingest.py # Loaders for raw CSV files
+│ │ └── etl.py # ETL pipeline (clean, merge, save processed datasets)
+│ │
+│ ├── features/
+│ │ └── rfm.py # RFM calculation, scoring, and segmentation
+│ │
+│ └── app/
+│ └── dashboard.py # Streamlit dashboard (interactive visuals & exports)
+│
+└── requirements.txt
+```
+---
+
+## ⚙️ Tech Stack
+- **Language:** Python 3.8+ (works with 3.10–3.12)
+- **Libraries:** pandas, plotly, streamlit, pathlib, argparse
+- **Visualization:** Streamlit + Plotly Express
+- **Data Source:** Olist Brazilian E-Commerce dataset (Kaggle)
+
+---
+
+## 🔎 Problem • Solution • Impact
+
+**Problem:** E-commerce teams often lack clarity on which customers drive revenue, who’s at risk of churning, and where to focus retention and marketing spend.  
+**Solution:** A repeatable automated pipeline that cleans raw transactions, computes RFM metrics, segments customers into business-ready groups, and surfaces insights via an interactive dashboard.  
+**Impact:** Enables targeted campaigns (e.g., VIP rewards, win-back offers), simplifies reporting, and reduces manual effort by automating ETL + analytics.
+
+---
+
+## ▶️ Quick Start (Run locally)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-username>/Ecom-Customer-Intelligence.git
+cd Ecom-Customer-Intelligence
+```
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+### 3. Add raw data
+```bash
+data/raw/
+```
+### 4. Run ETL + RFM pipeline
+```bash
+python -m src.data.etl --save --rfm
+```
+### 5. Launch the Streamlit dashboard
+```bash
+streamlit run src/app/dashboard.py
+```
+
+---
+
+## 📂 What Each File Does
+
+### 🧱 Data Layer (`src/data/`)
+- **ingest.py** →  
+  Handles all raw data loading from `data/raw/`.  
+  Keeps CSV file access centralized for reliability and easy scaling (e.g., to a database).
+
+- **etl.py** →  
+  The heart of the pipeline. Cleans and merges raw tables — customers, orders, items, and payments.  
+  Creates `orders_rfm.csv`, the foundation for customer analytics.  
+  Supports CLI flags like `--save` (to write outputs) and `--rfm` (to trigger the RFM step).
+
+---
+
+### 📊 Feature Layer (`src/features/`)
+- **rfm.py** →  
+  Reads `orders_rfm.csv`, calculates RFM (Recency, Frequency, Monetary) metrics, and assigns customers to segments like **Champions**, **Loyal**, **At Risk**, etc.  
+  Saves the resulting `rfm.csv` for dashboard visualization.
+
+---
+
+### 💻 App Layer (`src/app/`)
+- **dashboard.py** →  
+  The Streamlit application that powers the interactive dashboard.  
+  Displays customer metrics, segment-based visuals, date/state filters, and allows CSV export.  
+  Also includes a button to run the entire ETL + RFM pipeline automatically.
+
+---
+
+### 📄 Other Files
+- **requirements.txt** →  
+  Lists the exact Python dependencies needed to run the project.  
+  Installing these ensures consistency across environments.
+
+- **data/raw/** →  
+  Stores all the original CSV files downloaded from the [Olist dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
+
+- **data/processed/** →  
+  Automatically generated folder that contains all cleaned and aggregated data files used for analysis and visualization.
+
+---
+
+## 🧑‍💻 Author
+
+**K Gnan Vikas**  
+Data Analyst & Data Engineer | Python • SQL • AWS • Power BI • Streamlit  
+- 🔗 [LinkedIn](https://www.linkedin.com/in/gnanvikas)  
+- 💻 [GitHub](https://github.com/KGVikas)  
+
+---
