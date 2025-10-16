@@ -127,7 +127,7 @@ streamlit run src/app/dashboard.py
 
 **K Gnan Vikas**  
 Data Analyst & Data Engineer | Python • SQL • AWS • Power BI • Streamlit  
-- 🔗 [LinkedIn](https://www.linkedin.com/in/gnanvikas)  
+- 🔗 [LinkedIn](https://www.linkedin.com/in/gnan-vikas/)  
 - 💻 [GitHub](https://github.com/KGVikas)  
 
 ---
